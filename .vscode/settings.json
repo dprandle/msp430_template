@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.vsc": "glsl",
+        "*.fsc": "glsl",
+        "*.sc": "glsl",
+        "msp430.h": "c",
+        "msp430fr2311.h": "c",
+        "iomacros.h": "c"
+    }
+}

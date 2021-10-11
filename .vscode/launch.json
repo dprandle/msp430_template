@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C++ Remote Debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "miDebuggerPath": "${env:HOME}/ti/msp430-gcc/bin/msp430-elf-gdb",
+            "miDebuggerServerAddress": "localhost:2000",
+            "program": "${command:cmake.launchTargetPath}",
+            "debugServerPath": "${workspaceFolder}/mspdebug.sh",
+            "debugServerArgs": "tilib \"gdb\"",
+            "additionalSOLibSearchPath": "${env:HOME}/ti/msp430-gcc/bin",
+            "cwd": ".",
+            "linux": {
+                "MIMode": "gdb"
+            }
+        }
+    ]
+}

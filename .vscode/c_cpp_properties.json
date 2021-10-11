@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "MSP-430",
+            "includePath": [
+                "${default}",
+                "${env:HOME}/ti/msp430-gcc/include"
+            ],
+            "compilerPath": "${env:HOME}/ti/msp430-gcc/bin/msp430-elf-g++",
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "intelliSenseMode": "linux-gcc-x86",
+            "configurationProvider": "ms-vscode.cmake-tools",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "defines": ["__MSP430FR2311__"]
+        }
+    ],
+    "version": 4
+}

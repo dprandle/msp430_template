@@ -1,0 +1,19 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Upload Target to MSP",
+            "type":"shell",
+            "command": "${workspaceFolder}/mspdebug.sh tilib \"prog ${command:cmake.launchTargetPath}\"",
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "showReuseMessage": true,
+                "clear": true,
+                "focus": true
+            },
+            "problemMatcher":[]
+        }
+    ]
+}

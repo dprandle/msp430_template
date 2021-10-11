@@ -1,0 +1,19 @@
+{
+    "buildVariant": {
+        "default": "debug",
+        "choices": {
+            "debug": {
+                "buildType": "Debug",
+                "linkage": "shared",
+                "short": "Debug",
+                "long": "Build with debug symbols"
+            },
+            "release": {
+                "buildType": "Release",
+                "linkage": "shared",
+                "short": "Release",
+                "long": "Build without debug symbols"
+            }
+        }
+    }
+}
