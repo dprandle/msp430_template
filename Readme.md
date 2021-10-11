@@ -79,6 +79,9 @@ INSTALL_PATH/bin/msp430-elf-gdb PATH_TO_EXEC -ex "target remote :2000"
 replacing INSTALL_PATH to your msp compiler install path, and replace PATH_TO_EXEC to your built elf exec file to be debugged on msp.
 
 The following pages were used to help make this:
+
 [MSP430 debugging with VSCode](https://minkbot.blogspot.com/2019/03/vscode-and-msp430-debugging.html)
+
 [CMake with msp430 setup](https://github.com/descampsa/msp430-cmake)
+
 [Another CMake with msp430 setup](https://github.com/AlexanderSidorenko/msp-cmake)
