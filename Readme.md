@@ -1,6 +1,7 @@
 # MSP 430 Template Project for CMake on Linux - Visual Studio Code optional
 
-This is a simple guide for setting up cmake/vscode (or just cmake) for programming the msp430. Why?
+This is a template project for setting up cmake/vscode (or just cmake) for programming the msp430.
+
 Code Composer Studio is fine. TI offers another free IDE to use also - fine. If you're just doing MSP stuff for school, or only do MSP stuff (not other coding), then not a strong reason to not use TIs editors. But I'm not a fan.
 
 I used to be an emacs fan, now I use vscode - basically a programmable text editor. I prefer this editor because it doesn't rely on magic behaviour yet still allows things to be automated to keyboard shortcuts. I can use it for web coding, editing notes, writing markdown for readme files, or cross compiling for anything I can setup via command line tools. With vscode you can download extensions for what you need, or if there are none, you can code extensions yourself. Most stuff is customizable via text editable json files instead of GUI menus and text boxes. In any case, it also encourages really understanding your build process which helps immensly when problems occur - much easier to troubleshoot and deal with when you understand what is happening.
