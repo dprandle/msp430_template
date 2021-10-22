@@ -18,17 +18,15 @@ If your not using vscode and are just trying to use msp430 with cmake, you can d
 
 2) Download and build [mspdebug from git](https://github.com/dlbeer/mspdebug). Just download, cd to downloaded folder and run **make -j** followed by **sudo make install**.
 
-3) Download and install [Code Composer Studio](https://www.ti.com/tool/CCSTUDIO-MSP). Create an example project for your board (such as blink), compile and upload it to the board. This will install any needed drivers and firmware updates for the MSP debugger interface.
+3) Edit CMakeLists.txt so that MSP430_DEVICE_NAME is set to the specific MSP device your using. You can also change EXEC_NAME and VERSION to whatever you want - these are just used to generate the exe name. By default its gonna just search the src dir for cpp and c files - change this to whatever is needed.
 
-4) Edit CMakeLists.txt so that MSP430_DEVICE_NAME is set to the specific MSP device your using. You can also change EXEC_NAME and VERSION to whatever you want - these are just used to generate the exe name. By default its gonna just search the src dir for cpp and c files - change this to whatever is needed.
+4) Edit the MSP430.cmake toolchain file so that the TOOLS_ROOT variable is set to wherever you installed the msp430 compiler package. You can also edit/add any compiler/linker flags to match your specific MSP by editing MSP430_COMPILER_FLAGS and MSP430_LINKER_FLAGS.
 
-5) Edit the MSP430.cmake toolchain file so that the TOOLS_ROOT variable is set to wherever you installed the msp430 compiler package. You can also edit/add any compiler/linker flags to match your specific MSP by editing MSP430_COMPILER_FLAGS and MSP430_LINKER_FLAGS.
+5) Edit the mspdebug.sh script so the path after LD_LIBRARY_PATH points to your installation directory.
 
-6) Edit the mspdebug.sh script so the path after LD_LIBRARY_PATH points to your installation directory.
+6) Edit the .vscode/c_cpp_properties compiler path and include path to point to your compiler installation dirs. Also update the defines with your specific MSP430 device type. This is purely for vscode intellisense.
 
-7) Edit the .vscode/c_cpp_properties compiler path and include path to point to your compiler installation dirs. Also update the defines with your specific MSP430 device type. This is purely for vscode intellisense.
-
-8) Edit the .vscode/launch.json so that the miDebuggerPath points to the debugger file in your installation path (from step 1), and edit additionalSOLibSearchPath so it points to the bin folder in your installation path.
+7) Edit the .vscode/launch.json so that the miDebuggerPath points to the debugger file in your installation path (from step 1), and edit additionalSOLibSearchPath so it points to the bin folder in your installation path.
 
 If your using VSCODE with cmake/cmake tools extensions, you can now run the command "CMake: Select Variant" to pick debug or release build, and run "CMake: Configure" to run cmake, and run "CMake: Build" to compile.
 
@@ -63,9 +61,11 @@ cd ..
 
 To upload (as shown earlier):
 ```bash
-./mspdebug.sh debug_type "prog PATH_TO_EXEC"
+./mspdebug.sh --allow-fw-update debug_type "prog PATH_TO_EXEC"
 ```
 replacing the debug_type with whatever debug device your using (see mspdebug documentation or run ./mspdebug --help to see options) and PATH_TO_EXEC to your built elf exec file. All arguments are passed directly to mspdebug - the script is just to setup LD_LIBRARY_PATH so that mspdebug can correctly find libmsp430.so, which is included in the compiler package downloaded in step 1 above.
+
+The --allow-fw-update will likely update the debugger firmware the first time it runs - you may have to do it two times to get it to work. Mine complained about backchannel UART the first time, but then worked fine the second time.
 
 To start the debug server on the msp:
 ```bash

@@ -4,7 +4,7 @@
         {
             "label": "Upload Target to MSP",
             "type":"shell",
-            "command": "${workspaceFolder}/mspdebug.sh tilib \"prog ${command:cmake.launchTargetPath}\"",
+            "command": "${workspaceFolder}/mspdebug.sh --allow-fw-update tilib \"prog ${command:cmake.launchTargetPath}\"",
             "group": "none",
             "presentation": {
                 "reveal": "always",
